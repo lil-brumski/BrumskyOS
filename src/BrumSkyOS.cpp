@@ -14,9 +14,17 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 #include <ErrorHandler.hpp>
 #include <Time.hpp>
 #include <array>
+#include <cstdlib>
 
 int main(){
-  
+ 
+  #if defined(_WIN32) || defined(_WIN64)
+    [[maybe_unused]] int v = std::system("cls");
+ #else
+    [[maybe_unused]] int v = std::system("clear");
+ #endif
+ 
+ 
   std::cout << "Welcome to BrumSkyOS, we offer a few services: ";
   std::string UserTask = "";
   std::string UserTask2 = "";
